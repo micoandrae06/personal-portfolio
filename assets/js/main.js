@@ -137,3 +137,21 @@ sr.reveal('.home_profile, .about_image, .contact_mail',{origin:'right'})
 sr.reveal('.home_name, .home_info, .about_container, .section_title-1, .about_info, .contact_social, .contact_data', {origin:'left'})
 sr.reveal('.service_card, .project_card',{interval: 100})
 
+/*==================== ACCORDION SKILLS ====================*/
+const skillsContent = document.getElementsByClassName('skills_content'),
+    skillsHeader = document.querySelectorAll('.skills_header')
+
+function toggleSkills(){
+    let itemClass = this.parentNode.className
+
+    for(i = 0; i < skillsContent.length; i++){
+        skillsContent[i].className = 'skills_content skills_close'
+    }
+    if (itemClass === 'skills_content skills_close'){
+        this.parentNode.className = 'skills_content skills_open'
+    }
+}
+
+skillsHeader.forEach((el) =>{
+    el.addEventListener('click', toggleSkills)
+})
